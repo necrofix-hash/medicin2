@@ -1,81 +1,79 @@
 /* ============================================
-   수인당 한의원 - CSS Stylesheet
+   수인당 한의원 - 스타일시트
+   브랜드 가이드라인 기반 디자인
    ============================================ */
 
 /* ===========================================
-   CSS Variables (Design Tokens)
+   CSS Variables (브랜드 가이드라인)
    =========================================== */
 :root {
-  /* Primary Colors */
+  /* 프라이머리 컬러 */
   --brand-primary: #2D5A4A;
   --brand-primary-light: #3D7A64;
   --brand-primary-dark: #1D4A3A;
 
-  /* Accent Colors */
+  /* 포인트 컬러 */
   --brand-accent: #B8860B;
   --brand-accent-light: #D4A017;
 
-  /* Background Colors */
+  /* 배경 컬러 */
   --bg-primary: #FFFFFF;
   --bg-secondary: #F5F0E6;
   --bg-tertiary: #EDE8DC;
 
-  /* Text Colors */
+  /* 텍스트 컬러 */
   --text-primary: #4A3728;
   --text-secondary: #6B6B6B;
   --text-inverse: #FFFFFF;
+  --text-light: #8B8B8B;
 
-  /* Border & Line */
+  /* 보더/라인 */
   --border-color: #E8E8E8;
-  --border-dark: #D0D0D0;
+  --border-dark: #D4D4D4;
 
-  /* Typography */
+  /* 폰트 */
   --font-heading: 'Noto Serif KR', serif;
-  --font-body: 'Pretendard', -apple-system, sans-serif;
-  --font-display: 'Playfair Display', serif;
+  --font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Font Sizes */
+  /* 타입 스케일 (중장년층 가독성 고려) */
   --text-display: 3rem;
   --text-h1: 2.25rem;
-  --text-h2: 1.75rem;
-  --text-h3: 1.375rem;
-  --text-h4: 1.125rem;
-  --text-body: 1rem;
-  --text-body-lg: 1.125rem;
-  --text-body-sm: 0.875rem;
+  --text-h2: 1.875rem;
+  --text-h3: 1.5rem;
+  --text-h4: 1.25rem;
+  --text-body: 1.125rem;
+  --text-body-sm: 1rem;
+  --text-caption: 0.875rem;
 
-  /* Spacing */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
+  /* 간격 */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
 
-  /* Layout */
+  /* 레이아웃 */
   --container-max: 1200px;
   --header-height: 80px;
 
-  /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
-
-  /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  /* 그림자 */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
 
-  /* Border Radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  /* 트랜지션 */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
 }
 
 /* ===========================================
    Reset & Base
    =========================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -87,10 +85,10 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: var(--text-body-lg);
+  font-size: var(--text-body);
   line-height: 1.7;
   color: var(--text-primary);
-  background: var(--bg-primary);
+  background-color: var(--bg-primary);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -118,17 +116,13 @@ button {
 }
 
 /* ===========================================
-   Layout
+   Container
    =========================================== */
 .container {
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--space-lg);
-}
-
-.section {
-  padding: var(--space-3xl) 0;
+  padding: 0 var(--space-md);
 }
 
 /* ===========================================
@@ -141,29 +135,32 @@ button {
   right: 0;
   z-index: 1000;
   background: var(--bg-primary);
-  border-bottom: 1px solid var(--border-color);
 }
 
 .header-top {
   background: var(--brand-primary);
   color: var(--text-inverse);
-  padding: var(--space-sm) 0;
-  font-size: var(--text-body-sm);
+  padding: var(--space-xs) 0;
+}
+
+.header-notice {
+  font-size: var(--text-caption);
   text-align: center;
+  letter-spacing: 0.02em;
 }
 
 .nav {
-  height: var(--header-height);
-  display: flex;
-  align-items: center;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: var(--header-height);
 }
 
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -172,127 +169,272 @@ button {
 
 .logo-symbol {
   font-family: var(--font-heading);
-  font-size: var(--text-h3);
-  color: var(--brand-primary);
+  font-size: 1.5rem;
   font-weight: 700;
+  color: var(--brand-primary);
+  letter-spacing: 0.1em;
 }
 
 .logo-text {
   font-family: var(--font-heading);
-  font-size: var(--text-h4);
-  color: var(--text-primary);
+  font-size: 1.25rem;
   font-weight: 600;
+  color: var(--text-primary);
 }
 
+/* Navigation Menu */
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
 }
 
-.nav-item > a {
-  font-size: var(--text-body);
-  font-weight: 500;
-  color: var(--text-primary);
-  padding: var(--space-sm) 0;
+.nav-item {
   position: relative;
 }
 
-.nav-item > a:hover,
-.nav-item > a.active {
+.nav-item > a {
+  display: block;
+  padding: var(--space-sm) 0;
+  font-size: var(--text-body-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+.nav-item > a:hover {
   color: var(--brand-primary);
 }
 
-.nav-item > a::after {
-  content: '';
+/* Dropdown */
+.has-dropdown {
+  position: relative;
+}
+
+.dropdown {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--brand-primary);
-  transition: width var(--transition-normal);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 180px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  padding: var(--space-xs) 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
 }
 
-.nav-item > a:hover::after,
-.nav-item > a.active::after {
-  width: 100%;
+.has-dropdown:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
 }
 
+.dropdown li a {
+  display: block;
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--text-body-sm);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.dropdown li a:hover {
+  background: var(--bg-secondary);
+  color: var(--brand-primary);
+}
+
+/* Reservation Button */
 .btn-reservation {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
   background: var(--brand-primary);
   color: var(--text-inverse);
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-md);
+  border-radius: 8px;
   font-weight: 600;
   font-size: var(--text-body-sm);
   transition: background var(--transition-fast);
+  min-height: 48px;
 }
 
 .btn-reservation:hover {
   background: var(--brand-primary-dark);
+  color: var(--text-inverse);
+}
+
+.phone-icon {
+  font-size: 1.2em;
 }
 
 /* Mobile Menu Button */
 .mobile-menu-btn {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
-  padding: var(--space-sm);
+  width: 48px;
+  height: 48px;
+  padding: 12px;
 }
 
 .mobile-menu-btn span {
-  width: 24px;
+  display: block;
+  width: 100%;
   height: 2px;
   background: var(--text-primary);
-  transition: var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 /* ===========================================
-   Page Header (Subpage)
+   Buttons
    =========================================== */
-.page-header {
-  background: var(--bg-secondary);
-  padding: var(--space-3xl) 0;
-  margin-top: calc(var(--header-height) + 36px);
-  text-align: center;
-}
-
-.page-title {
-  font-family: var(--font-heading);
-  font-size: var(--text-h1);
-  color: var(--text-primary);
-  margin-bottom: var(--space-sm);
-}
-
-.page-subtitle {
-  font-size: var(--text-body-lg);
-  color: var(--text-secondary);
-}
-
-/* Breadcrumb */
-.breadcrumb {
-  display: flex;
+.btn {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  gap: var(--space-sm);
-  margin-top: var(--space-lg);
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-lg);
   font-size: var(--text-body-sm);
-  color: var(--text-secondary);
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+  min-height: 48px;
+  cursor: pointer;
 }
 
-.breadcrumb a:hover {
+.btn-primary {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  border: 2px solid var(--brand-primary);
+}
+
+.btn-primary:hover {
+  background: var(--brand-primary-dark);
+  border-color: var(--brand-primary-dark);
+  color: var(--text-inverse);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-inverse);
+  border: 2px solid var(--text-inverse);
+}
+
+.btn-secondary:hover {
+  background: var(--text-inverse);
   color: var(--brand-primary);
 }
 
-.breadcrumb span {
-  color: var(--text-secondary);
+.btn-outline {
+  background: transparent;
+  color: var(--text-inverse);
+  border: 2px solid var(--text-inverse);
+}
+
+.btn-outline:hover {
+  background: var(--text-inverse);
+  color: var(--brand-primary);
+}
+
+.btn-large {
+  padding: var(--space-md) var(--space-xl);
+  font-size: var(--text-body);
+  min-height: 56px;
 }
 
 /* ===========================================
-   Hero Section (Homepage)
+   Section Common
+   =========================================== */
+.section {
+  padding: var(--space-3xl) 0;
+}
+
+.section-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.section-header.center {
+  text-align: center;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: var(--text-caption);
+  font-weight: 600;
+  color: var(--brand-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-sm);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: var(--space-sm);
+}
+
+.section-desc {
+  font-size: var(--text-body);
+  color: var(--text-secondary);
+  max-width: 600px;
+}
+
+.section-header.center .section-desc {
+  margin: 0 auto;
+}
+
+/* ===========================================
+   Image Placeholder (이미지 교체용)
+   =========================================== */
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  border: 2px dashed var(--border-dark);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-placeholder.small {
+  min-height: 200px;
+}
+
+.placeholder-content {
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: var(--space-sm);
+  opacity: 0.6;
+}
+
+.placeholder-content p {
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.placeholder-content small {
+  font-size: var(--text-caption);
+  color: var(--text-light);
+}
+
+/* ===========================================
+   Hero Section
    =========================================== */
 .hero {
   position: relative;
@@ -309,16 +451,24 @@ button {
   z-index: 0;
 }
 
+.hero-image .image-placeholder,
 .hero-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 10% center;
+  border-radius: 0;
+  border: none;
+}
+
+.hero-placeholder {
+  min-height: 100%;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(45, 90, 74, 0.7);
+  background: rgba(45, 90, 74, 0.8);
   z-index: 1;
 }
 
@@ -368,216 +518,40 @@ button {
 }
 
 /* ===========================================
-   Buttons
+   Greeting Section (인사말)
    =========================================== */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  padding: var(--space-md) var(--space-xl);
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  font-size: var(--text-body);
-  transition: all var(--transition-fast);
-  min-width: 160px;
-  min-height: 52px;
-}
-
-.btn-primary {
-  background: var(--brand-primary);
-  color: var(--text-inverse);
-}
-
-.btn-primary:hover {
-  background: var(--brand-primary-dark);
-}
-
-.btn-secondary {
-  background: var(--bg-primary);
-  color: var(--brand-primary);
-  border: 2px solid var(--brand-primary);
-}
-
-.btn-secondary:hover {
-  background: var(--brand-primary);
-  color: var(--text-inverse);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--text-inverse);
-  border: 2px solid var(--text-inverse);
-}
-
-.btn-outline:hover {
-  background: var(--text-inverse);
-  color: var(--brand-primary);
-}
-
-.btn-large {
-  padding: var(--space-lg) var(--space-2xl);
-  font-size: var(--text-h4);
-  min-height: 60px;
-}
-
-/* ===========================================
-   Section Headers
-   =========================================== */
-.section-header {
-  margin-bottom: var(--space-2xl);
-}
-
-.section-header.center {
-  text-align: center;
-}
-
-.section-label {
-  display: inline-block;
-  font-size: var(--text-body-sm);
-  font-weight: 600;
-  color: var(--brand-primary);
+.section-greeting {
   background: var(--bg-secondary);
-  padding: var(--space-xs) var(--space-md);
-  border-radius: var(--radius-sm);
-  margin-bottom: var(--space-md);
 }
 
-.section-title {
-  font-family: var(--font-heading);
-  font-size: var(--text-h2);
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.3;
-  margin-bottom: var(--space-md);
-}
-
-.section-desc {
-  font-size: var(--text-body-lg);
-  color: var(--text-secondary);
-  max-width: 600px;
-}
-
-.section-header.center .section-desc {
-  margin: 0 auto;
-}
-
-/* ===========================================
-   Cards
-   =========================================== */
-.card {
-  background: var(--bg-primary);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition-normal);
-}
-
-.card:hover {
-  box-shadow: var(--shadow-md);
-}
-
-.card-image {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-
-.card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-content {
-  padding: var(--space-lg);
-}
-
-.card-title {
-  font-family: var(--font-heading);
-  font-size: var(--text-h3);
-  font-weight: 600;
-  margin-bottom: var(--space-sm);
-}
-
-.card-text {
-  color: var(--text-secondary);
-  font-size: var(--text-body);
-}
-
-/* ===========================================
-   Quick Links (Homepage)
-   =========================================== */
-.quick-links {
-  background: var(--bg-secondary);
-  padding: var(--space-2xl) 0;
-}
-
-.quick-links-grid {
+.greeting-content {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-lg);
-}
-
-.quick-link-item {
-  background: var(--bg-primary);
-  padding: var(--space-xl);
-  border-radius: var(--radius-lg);
-  text-align: center;
-  transition: all var(--transition-normal);
-  box-shadow: var(--shadow-sm);
-}
-
-.quick-link-item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
-
-.quick-link-icon {
-  font-size: 2.5rem;
-  margin-bottom: var(--space-md);
-}
-
-.quick-link-title {
-  font-family: var(--font-heading);
-  font-size: var(--text-h4);
-  font-weight: 600;
-  margin-bottom: var(--space-sm);
-  color: var(--text-primary);
-}
-
-.quick-link-desc {
-  font-size: var(--text-body-sm);
-  color: var(--text-secondary);
-}
-
-/* ===========================================
-   About Section (Homepage)
-   =========================================== */
-.about-preview {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: var(--space-2xl);
   align-items: center;
 }
 
-.about-image {
-  border-radius: var(--radius-lg);
+.greeting-image {
+  height: 500px;
   overflow: hidden;
-  height: 400px;
 }
 
-.about-image img {
+.greeting-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 0%;
 }
 
-.about-text {
+.greeting-image .image-placeholder {
+  height: 100%;
+}
+
+.greeting-text {
   padding: var(--space-lg) 0;
 }
 
-.about-quote {
+.greeting-quote {
   font-family: var(--font-heading);
   font-size: var(--text-h3);
   font-weight: 600;
@@ -587,89 +561,130 @@ button {
   border-left: 4px solid var(--brand-accent);
 }
 
-/* ===========================================
-   Services Grid (Homepage)
-   =========================================== */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
+.greeting-text p {
+  margin-bottom: var(--space-md);
+  color: var(--text-secondary);
 }
 
-.service-card {
+.greeting-signature {
+  margin-top: var(--space-lg);
+  font-size: var(--text-body);
+  color: var(--text-primary);
+}
+
+/* ===========================================
+   Doctors Section (의료진 소개)
+   =========================================== */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.doctor-card {
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-  text-align: center;
-  transition: all var(--transition-normal);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: box-shadow var(--transition-normal);
 }
 
-.service-card:hover {
-  border-color: var(--brand-primary);
-  box-shadow: var(--shadow-md);
+.doctor-card:hover {
+  box-shadow: var(--shadow-lg);
 }
 
-.service-icon {
-  font-size: 3rem;
+.doctor-image {
+  height: 350px;
+}
+
+.doctor-image .image-placeholder {
+  height: 100%;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.doctor-info {
+  padding: var(--space-lg);
+}
+
+.doctor-position {
+  display: inline-block;
+  font-size: var(--text-caption);
+  font-weight: 600;
+  color: var(--brand-accent);
+  margin-bottom: var(--space-xs);
+}
+
+.doctor-name {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: 700;
+  color: var(--text-primary);
   margin-bottom: var(--space-md);
 }
 
-.service-title {
-  font-family: var(--font-heading);
-  font-size: var(--text-h4);
-  font-weight: 600;
-  margin-bottom: var(--space-sm);
+.doctor-career {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
 }
 
-.service-desc {
+.doctor-career li {
   font-size: var(--text-body-sm);
   color: var(--text-secondary);
-  margin-bottom: var(--space-md);
+  padding-left: var(--space-md);
+  position: relative;
 }
 
-.service-link {
+.doctor-career li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
   color: var(--brand-primary);
-  font-weight: 600;
-  font-size: var(--text-body-sm);
-}
-
-.service-link:hover {
-  text-decoration: underline;
 }
 
 /* ===========================================
-   Facility Gallery (Homepage)
+   Facility Section (시설 안내)
    =========================================== */
-.facility-gallery-home {
+.section-facility {
+  background: var(--bg-tertiary);
+}
+
+.facility-gallery {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: var(--space-lg);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: var(--space-md);
 }
 
-.facility-item-large {
+.facility-item {
   position: relative;
-  border-radius: var(--radius-lg);
+  border-radius: 12px;
   overflow: hidden;
 }
 
-.facility-side {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
+.facility-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
-.facility-item-small {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  flex: 1;
+.facility-item .image-placeholder {
+  height: 100%;
+  min-height: 250px;
+  border-radius: 12px;
 }
 
-.facility-item-small img {
+.facility-item > img {
   width: 100%;
   height: 100%;
+  min-height: 250px;
   object-fit: cover;
+  border-radius: 12px;
+}
+
+.facility-item.large .image-placeholder {
+  min-height: 520px;
 }
 
 /* Facility Slider */
@@ -677,8 +692,8 @@ button {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 500px;
-  border-radius: var(--radius-lg);
+  min-height: 520px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
@@ -705,7 +720,7 @@ button {
 
 .slider-controls {
   position: absolute;
-  bottom: 60px;
+  bottom: 12px;
   right: 20px;
   display: flex;
   gap: var(--space-sm);
@@ -731,120 +746,6 @@ button {
   color: white;
 }
 
-.facility-item-large .facility-label,
-.facility-item-small .facility-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: var(--space-md);
-  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-  color: var(--text-inverse);
-  font-weight: 600;
-  font-size: var(--text-body-sm);
-}
-
-/* ===========================================
-   Doctor Section
-   =========================================== */
-.doctors-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-2xl);
-}
-
-.doctor-card {
-  display: flex;
-  gap: var(--space-xl);
-  background: var(--bg-primary);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-}
-
-.doctor-image {
-  width: 250px;
-  min-height: 300px;
-  flex-shrink: 0;
-}
-
-.doctor-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.doctor-info {
-  padding: var(--space-xl);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.doctor-position {
-  font-size: var(--text-body-sm);
-  color: var(--brand-primary);
-  font-weight: 600;
-  margin-bottom: var(--space-xs);
-}
-
-.doctor-name {
-  font-family: var(--font-heading);
-  font-size: var(--text-h2);
-  font-weight: 700;
-  margin-bottom: var(--space-md);
-}
-
-.doctor-career {
-  font-size: var(--text-body-sm);
-  color: var(--text-secondary);
-}
-
-.doctor-career li {
-  padding: var(--space-xs) 0;
-  padding-left: var(--space-md);
-  position: relative;
-}
-
-.doctor-career li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 4px;
-  height: 4px;
-  background: var(--brand-accent);
-  border-radius: 50%;
-}
-
-/* ===========================================
-   Facility Gallery
-   =========================================== */
-.facility-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
-}
-
-.facility-item {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  height: 250px;
-}
-
-.facility-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-normal);
-}
-
-.facility-item:hover img {
-  transform: scale(1.05);
-}
-
 .facility-label {
   position: absolute;
   bottom: 0;
@@ -858,7 +759,7 @@ button {
 }
 
 /* ===========================================
-   Treatment Cards
+   Treatment Section (진료 과목)
    =========================================== */
 .treatment-grid {
   display: grid;
@@ -868,34 +769,44 @@ button {
 
 .treatment-card {
   background: var(--bg-primary);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  display: flex;
+  transition: all var(--transition-normal);
+}
+
+.treatment-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand-primary);
 }
 
 .treatment-image {
-  width: 250px;
-  height: 200px;
-  flex-shrink: 0;
+  width: 560px;
+  height: 250px;
   overflow: hidden;
 }
 
 .treatment-image img {
-  width: 100%;
-  height: 100%;
+  width: 560px;
+  height: 250px;
   object-fit: cover;
+}
+
+.treatment-image .image-placeholder {
+  height: 100%;
+  border-radius: 0;
+  border: none;
 }
 
 .treatment-content {
   padding: var(--space-lg);
-  flex: 1;
 }
 
 .treatment-title {
   font-family: var(--font-heading);
   font-size: var(--text-h4);
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--text-primary);
   margin-bottom: var(--space-sm);
 }
 
@@ -906,25 +817,26 @@ button {
 }
 
 .treatment-list {
-  font-size: var(--text-body-sm);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
 }
 
 .treatment-list li {
-  padding: var(--space-xs) 0;
-  padding-left: var(--space-md);
-  position: relative;
-}
-
-.treatment-list li::before {
-  content: '>';
-  position: absolute;
-  left: 0;
+  font-size: var(--text-caption);
   color: var(--brand-primary);
+  background: var(--bg-secondary);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 20px;
 }
 
 /* ===========================================
-   Method Cards
+   Methods Section (치료 방법)
    =========================================== */
+.section-methods {
+  background: var(--bg-secondary);
+}
+
 .methods-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -933,47 +845,55 @@ button {
 
 .method-card {
   background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  border-radius: 16px;
+  padding: var(--space-lg);
+  text-align: center;
   transition: all var(--transition-normal);
 }
 
 .method-card:hover {
-  border-color: var(--brand-primary);
   box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
 }
 
 .method-image {
-  height: 180px;
+  margin-bottom: var(--space-md);
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .method-image img {
   width: 100%;
-  height: 100%;
+  height: 180px;
   object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
-.method-content {
-  padding: var(--space-lg);
-  text-align: center;
+.method-card:hover .method-image img {
+  transform: scale(1.05);
+}
+
+.method-image .image-placeholder {
+  min-height: 180px;
 }
 
 .method-title {
   font-family: var(--font-heading);
   font-size: var(--text-h4);
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--text-primary);
   margin-bottom: var(--space-sm);
 }
 
 .method-desc {
   font-size: var(--text-body-sm);
   color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 /* ===========================================
-   Schedule Table
+   Schedule Section (진료 시간)
    =========================================== */
 .schedule-wrapper {
   display: grid;
@@ -982,10 +902,22 @@ button {
   align-items: center;
 }
 
+.schedule-image {
+  height: 450px;
+}
+
+.schedule-image .image-placeholder {
+  height: 100%;
+}
+
+.schedule-content {
+  padding: var(--space-lg);
+}
+
 .schedule-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: var(--space-lg);
+  margin: var(--space-lg) 0;
 }
 
 .schedule-table th,
@@ -996,24 +928,45 @@ button {
 }
 
 .schedule-table th {
-  background: var(--bg-secondary);
   font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
 }
 
-.schedule-table .holiday td {
-  color: #C0392B;
+.schedule-table td {
+  color: var(--text-secondary);
+}
+
+.schedule-table tr.holiday td {
+  color: var(--brand-accent);
+  font-weight: 600;
 }
 
 .schedule-notice {
   background: var(--bg-secondary);
-  padding: var(--space-lg);
-  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  border-radius: 8px;
   margin-bottom: var(--space-lg);
 }
 
+.schedule-notice p {
+  font-size: var(--text-body-sm);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.schedule-notice p:first-child {
+  color: var(--brand-primary);
+  margin-bottom: var(--space-xs);
+}
+
 /* ===========================================
-   Community Section
+   Health Section (건강 정보)
    =========================================== */
+.section-health {
+  background: var(--bg-primary);
+}
+
 .health-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1022,9 +975,9 @@ button {
 
 .health-card {
   background: var(--bg-primary);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
   transition: all var(--transition-normal);
 }
 
@@ -1033,7 +986,7 @@ button {
 }
 
 .health-image {
-  height: 200px;
+  height: 220px;
   overflow: hidden;
 }
 
@@ -1041,6 +994,18 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.health-card:hover .health-image img {
+  transform: scale(1.05);
+}
+
+.health-image .image-placeholder {
+  height: 100%;
+  border-radius: 0;
+  border: none;
 }
 
 .health-content {
@@ -1048,32 +1013,47 @@ button {
 }
 
 .health-category {
-  font-size: var(--text-body-sm);
-  color: var(--brand-primary);
+  display: inline-block;
+  font-size: var(--text-caption);
   font-weight: 600;
+  color: var(--brand-accent);
   margin-bottom: var(--space-sm);
 }
 
 .health-title {
   font-family: var(--font-heading);
   font-size: var(--text-h4);
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--text-primary);
   margin-bottom: var(--space-sm);
+  line-height: 1.4;
 }
 
 .health-excerpt {
   font-size: var(--text-body-sm);
   color: var(--text-secondary);
   margin-bottom: var(--space-md);
+  line-height: 1.6;
 }
 
 .health-link {
-  color: var(--brand-primary);
-  font-weight: 600;
   font-size: var(--text-body-sm);
+  font-weight: 600;
+  color: var(--brand-primary);
+  transition: color var(--transition-fast);
 }
 
-/* Review Cards */
+.health-link:hover {
+  color: var(--brand-primary-dark);
+}
+
+/* ===========================================
+   Reviews Section (치료 후기)
+   =========================================== */
+.section-reviews {
+  background: var(--bg-tertiary);
+}
+
 .reviews-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1081,9 +1061,10 @@ button {
 }
 
 .review-card {
-  background: var(--bg-secondary);
-  padding: var(--space-xl);
-  border-radius: var(--radius-lg);
+  background: var(--bg-primary);
+  padding: var(--space-lg);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
 }
 
 .review-header {
@@ -1094,40 +1075,115 @@ button {
 }
 
 .review-avatar {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
   background: var(--brand-primary);
   color: var(--text-inverse);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
+  font-size: var(--text-body);
+}
+
+.review-meta {
+  display: flex;
+  flex-direction: column;
 }
 
 .review-name {
   font-weight: 600;
-  display: block;
+  color: var(--text-primary);
 }
 
 .review-treatment {
-  font-size: var(--text-body-sm);
+  font-size: var(--text-caption);
   color: var(--text-secondary);
 }
 
 .review-rating {
   color: var(--brand-accent);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 2px;
 }
 
 .review-text {
-  font-size: var(--text-body);
+  font-size: var(--text-body-sm);
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* ===========================================
-   Location Section
+   CTA Section
+   =========================================== */
+.section-cta {
+  position: relative;
+  padding: var(--space-3xl) 0;
+}
+
+.cta-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.cta-background .image-placeholder,
+.cta-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  border: none;
+}
+
+.cta-placeholder {
+  min-height: 100%;
+}
+
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(45, 90, 74, 0.9);
+  z-index: 1;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--text-inverse);
+}
+
+.cta-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.cta-desc {
+  font-size: var(--text-h4);
+  opacity: 0.9;
+  margin-bottom: var(--space-xl);
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* ===========================================
+   Location Section (오시는 길)
    =========================================== */
 .location-wrapper {
   display: grid;
@@ -1136,62 +1192,42 @@ button {
 }
 
 .location-map {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  height: 400px;
-  background: var(--bg-secondary);
+  height: 450px;
+}
+
+.location-map .image-placeholder {
+  height: 100%;
+}
+
+.map-placeholder {
+  background: var(--bg-tertiary);
 }
 
 .location-info {
   display: grid;
+  grid-template-columns: 1fr;
   gap: var(--space-md);
+  align-content: start;
 }
 
 .info-card {
   background: var(--bg-secondary);
   padding: var(--space-lg);
-  border-radius: var(--radius-md);
+  border-radius: 12px;
 }
 
 .info-title {
-  font-weight: 600;
-  margin-bottom: var(--space-sm);
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
+  font-weight: 700;
   color: var(--text-primary);
+  margin-bottom: var(--space-sm);
 }
 
 .info-text {
-  font-size: var(--text-body);
+  font-size: var(--text-body-sm);
   color: var(--text-secondary);
   line-height: 1.6;
-}
-
-/* ===========================================
-   CTA Section
-   =========================================== */
-.cta-section {
-  background: var(--brand-primary);
-  color: var(--text-inverse);
-  padding: var(--space-3xl) 0;
-  text-align: center;
-}
-
-.cta-title {
-  font-family: var(--font-heading);
-  font-size: var(--text-h2);
-  margin-bottom: var(--space-md);
-}
-
-.cta-desc {
-  font-size: var(--text-body-lg);
-  opacity: 0.9;
-  margin-bottom: var(--space-xl);
-}
-
-.cta-buttons {
-  display: flex;
-  gap: var(--space-md);
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 /* ===========================================
@@ -1200,19 +1236,15 @@ button {
 .footer {
   background: var(--text-primary);
   color: var(--text-inverse);
-  padding: var(--space-3xl) 0 var(--space-xl);
+  padding: var(--space-2xl) 0 var(--space-lg);
 }
 
 .footer-top {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
   gap: var(--space-2xl);
-  padding-bottom: var(--space-2xl);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.footer-brand {
-  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-logo {
@@ -1223,7 +1255,7 @@ button {
 }
 
 .footer-logo .logo-symbol {
-  color: var(--text-inverse);
+  color: var(--brand-accent);
 }
 
 .footer-logo .logo-text {
@@ -1231,56 +1263,59 @@ button {
 }
 
 .footer-slogan {
+  font-family: var(--font-heading);
+  font-size: var(--text-body-sm);
   opacity: 0.8;
-  font-size: var(--text-body);
 }
 
 .footer-contact h4,
 .footer-hours h4 {
+  font-family: var(--font-heading);
   font-size: var(--text-body);
   font-weight: 600;
   margin-bottom: var(--space-md);
+  color: var(--brand-accent);
 }
 
 .footer-contact p,
 .footer-hours p {
   font-size: var(--text-body-sm);
   opacity: 0.8;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
 }
 
 .footer-bottom {
-  padding-top: var(--space-xl);
+  padding-top: var(--space-lg);
   text-align: center;
 }
 
 .copyright {
-  font-size: var(--text-body-sm);
+  font-size: var(--text-caption);
   opacity: 0.6;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
 }
 
 .footer-notice {
-  font-size: var(--text-body-sm);
+  font-size: var(--text-caption);
   opacity: 0.5;
 }
 
 /* ===========================================
-   Mobile Navigation Overlay
+   Mobile Navigation
    =========================================== */
 .mobile-nav-overlay {
-  display: none;
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
   opacity: 0;
-  transition: opacity var(--transition-normal);
+  visibility: hidden;
+  transition: all var(--transition-normal);
 }
 
 .mobile-nav-overlay.active {
-  display: block;
   opacity: 1;
+  visibility: visible;
 }
 
 /* ===========================================
@@ -1289,41 +1324,24 @@ button {
 
 /* Tablet */
 @media (max-width: 1024px) {
-  .quick-links-grid {
-    grid-template-columns: repeat(2, 1fr);
+  :root {
+    --text-display: 2.5rem;
+    --text-h1: 2rem;
+    --text-h2: 1.5rem;
+    --text-h3: 1.25rem;
   }
 
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .doctors-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .doctor-card {
-    flex-direction: column;
-  }
-
-  .doctor-image {
-    width: 100%;
-    height: 300px;
-  }
-
+  .doctors-grid,
   .treatment-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .treatment-card {
-    flex-direction: column;
-  }
-
-  .treatment-image {
-    width: 100%;
-    height: 200px;
+    gap: var(--space-md);
   }
 
   .methods-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .health-grid,
+  .reviews-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1331,44 +1349,86 @@ button {
     grid-template-columns: 1fr;
   }
 
+  .schedule-image {
+    order: 2;
+    height: 350px;
+  }
+
   .location-wrapper {
     grid-template-columns: 1fr;
   }
 
+  .location-map {
+    height: 350px;
+  }
+
+  .location-info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .footer-top {
-    grid-template-columns: 1fr;
-    text-align: center;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
   }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
   :root {
-    --header-height: 70px;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: calc(var(--header-height) + 36px);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--bg-primary);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: var(--space-xl);
-    gap: var(--space-md);
-    transform: translateX(-100%);
-    transition: transform var(--transition-normal);
-    z-index: 1000;
-  }
-
-  .nav-menu.active {
-    transform: translateX(0);
+    --space-3xl: 4rem;
+    --space-2xl: 3rem;
   }
 
   .mobile-menu-btn {
     display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--bg-primary);
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--space-3xl) var(--space-lg);
+    gap: 0;
+    box-shadow: var(--shadow-lg);
+    transition: right var(--transition-normal);
+    z-index: 1001;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-item > a {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: var(--text-body);
+  }
+
+  .dropdown {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    margin: var(--space-sm) 0;
+  }
+
+  .has-dropdown.active .dropdown {
+    display: block;
   }
 
   .btn-reservation {
@@ -1383,15 +1443,27 @@ button {
     font-size: clamp(2rem, 8vw, 3rem);
   }
 
-  .quick-links-grid {
+  .hero-desc {
+    font-size: var(--text-body);
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .greeting-content {
     grid-template-columns: 1fr;
   }
 
-  .about-preview {
-    grid-template-columns: 1fr;
+  .greeting-image {
+    height: 350px;
   }
 
-  .services-grid {
+  .doctors-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1399,57 +1471,330 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .facility-gallery-home {
-    grid-template-columns: 1fr;
+  .facility-item.large {
+    grid-column: span 1;
+    grid-row: span 1;
   }
 
-  .facility-slider {
+  .facility-item.large .image-placeholder {
     min-height: 300px;
   }
 
-  .facility-side {
-    flex-direction: row;
+  .treatment-grid {
+    grid-template-columns: 1fr;
   }
 
   .methods-grid {
     grid-template-columns: 1fr;
   }
 
-  .health-grid {
-    grid-template-columns: 1fr;
-  }
-
+  .health-grid,
   .reviews-grid {
     grid-template-columns: 1fr;
   }
 
-  .hero-buttons {
-    flex-direction: column;
-    width: 100%;
-    padding: 0 var(--space-lg);
+  .location-info {
+    grid-template-columns: 1fr;
   }
 
-  .btn {
-    width: 100%;
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .footer-brand {
+    grid-column: span 1;
   }
 
   .cta-buttons {
     flex-direction: column;
-    padding: 0 var(--space-lg);
+    align-items: center;
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+    max-width: 320px;
   }
 }
 
 /* Small Mobile */
 @media (max-width: 480px) {
   .container {
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-sm);
   }
 
   .section {
     padding: var(--space-2xl) 0;
   }
 
-  .page-header {
-    padding: var(--space-2xl) 0;
+  .logo-text {
+    display: none;
+  }
+
+  .hero-buttons .btn {
+    padding: var(--space-md);
+  }
+}
+
+/* ===========================================
+   Page Header (서브페이지 상단 배너)
+   =========================================== */
+.page-header {
+  position: relative;
+  padding: var(--space-3xl) 0;
+  margin-top: calc(var(--header-height) + 36px);
+  text-align: center;
+  background-color: var(--brand-primary-dark);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(29, 74, 58, 0.72) 0%,
+    rgba(18, 50, 38, 0.82) 100%
+  );
+  z-index: 1;
+}
+
+.page-header .container {
+  position: relative;
+  z-index: 2;
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h1);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: var(--space-sm);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.page-subtitle {
+  font-size: var(--text-body);
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: var(--space-lg);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.breadcrumb {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-size: var(--text-body-sm);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.breadcrumb a { color: rgba(255, 255, 255, 0.85); }
+.breadcrumb a:hover { color: #ffffff; }
+
+/* ===========================================
+   Quick Links (홈 바로가기)
+   =========================================== */
+.quick-links {
+  background: var(--bg-secondary);
+  padding: var(--space-2xl) 0;
+}
+
+.quick-links-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.quick-link-item {
+  background: var(--bg-primary);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.quick-link-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.quick-link-icon { font-size: 2.5rem; margin-bottom: var(--space-md); }
+
+.quick-link-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+}
+
+.quick-link-desc { font-size: var(--text-body-sm); color: var(--text-secondary); }
+
+/* ===========================================
+   About Preview (홈 소개 섹션)
+   =========================================== */
+.about-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.about-image {
+  border-radius: 10%;
+  overflow: hidden;
+  height: 560px;
+}
+
+.about-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 0%; }
+
+.about-text { padding: var(--space-lg) 0; }
+
+.about-quote {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: 600;
+  color: var(--brand-primary);
+  margin-bottom: var(--space-lg);
+  padding-left: var(--space-md);
+  border-left: 4px solid var(--brand-accent);
+}
+
+/* ===========================================
+   Services Grid (홈 진료과목 요약)
+   =========================================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.service-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  text-align: center;
+  transition: all var(--transition-normal);
+}
+
+.service-card:hover { border-color: var(--brand-primary); box-shadow: var(--shadow-md); }
+
+.service-icon { font-size: 3rem; margin-bottom: var(--space-md); }
+
+.service-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.service-desc { font-size: var(--text-body-sm); color: var(--text-secondary); margin-bottom: var(--space-md); }
+
+.service-link { color: var(--brand-primary); font-weight: 600; font-size: var(--text-body-sm); }
+
+/* ===========================================
+   Facility Gallery Home
+   =========================================== */
+.facility-gallery-home {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-lg);
+}
+
+.facility-item-large {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.facility-side { display: flex; flex-direction: column; gap: var(--space-lg); }
+
+.facility-item-small {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  flex: 1;
+}
+
+.facility-item-small img { width: 100%; height: 100%; object-fit: cover; }
+
+.facility-item-large .facility-label,
+.facility-item-small .facility-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: var(--space-md);
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: var(--text-inverse);
+  font-weight: 600;
+}
+
+/* ===========================================
+   CTA Section
+   =========================================== */
+.cta-section {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  padding: var(--space-3xl) 0;
+  text-align: center;
+}
+
+.cta-section .cta-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  color: var(--text-inverse);
+}
+
+.cta-section .cta-desc {
+  font-size: var(--text-body);
+  margin-bottom: var(--space-xl);
+  opacity: 0.9;
+}
+
+/* Responsive: multi-page */
+@media (max-width: 768px) {
+  .quick-links-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-preview { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .facility-gallery-home { grid-template-columns: 1fr; }
+  .facility-side { flex-direction: row; }
+  .page-header { padding: var(--space-2xl) 0; }
+}
+
+@media (max-width: 480px) {
+  .quick-links-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+/* ===========================================
+   Print Styles
+   =========================================== */
+@media print {
+  .header,
+  .mobile-menu-btn,
+  .btn-reservation,
+  .hero-buttons,
+  .cta-buttons,
+  .section-cta {
+    display: none;
+  }
+
+  .hero {
+    min-height: auto;
+    margin-top: 0;
+  }
+
+  .section {
+    padding: var(--space-lg) 0;
   }
 }

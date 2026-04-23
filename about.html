@@ -6,12 +6,10 @@
   <title>한의원 소개 | 수인당 한의원</title>
   <meta name="description" content="수인당 한의원 소개 - 인사말, 의료진 소개, 시설 안내">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
-
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,7 +17,7 @@
   <header class="header">
     <div class="header-top">
       <div class="container">
-        <p>평일 09:00 - 18:00 | 토요일 09:00 - 13:00 | 일요일/공휴일 휴진</p>
+        <p class="header-notice">평일 09:00 - 18:00 | 토요일 09:00 - 13:00 | 일요일·공휴일 휴진</p>
       </div>
     </div>
     <nav class="nav">
@@ -28,13 +26,9 @@
           <span class="logo-symbol">壽仁堂</span>
           <span class="logo-text">수인당 한의원</span>
         </a>
-
         <button class="mobile-menu-btn" aria-label="메뉴 열기">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
-
         <ul class="nav-menu">
           <li class="nav-item"><a href="index.html">홈</a></li>
           <li class="nav-item"><a href="about.html" class="active">한의원 소개</a></li>
@@ -42,8 +36,8 @@
           <li class="nav-item"><a href="community.html">건강 정보</a></li>
           <li class="nav-item"><a href="location.html">오시는 길</a></li>
         </ul>
-
         <a href="tel:02-1234-5678" class="btn-reservation">
+          <span class="phone-icon">📞</span>
           <span>02-1234-5678</span>
         </a>
       </div>
@@ -51,13 +45,13 @@
   </header>
 
   <!-- Page Header -->
-  <section class="page-header">
+  <section class="page-header" style="background-image: url('images/sub_about.jpg');">
     <div class="container">
       <h1 class="page-title">한의원 소개</h1>
       <p class="page-subtitle">수인당 한의원을 소개합니다</p>
       <div class="breadcrumb">
         <a href="index.html">홈</a>
-        <span>></span>
+        <span>›</span>
         <span>한의원 소개</span>
       </div>
     </div>
@@ -66,20 +60,20 @@
   <!-- 인사말 Section -->
   <section class="section" id="greeting">
     <div class="container">
-      <div class="about-preview">
-        <div class="about-image">
-          <img src="images/doctors/01.jpg" alt="원장 인사">
+      <div class="greeting-content">
+        <div class="greeting-image">
+          <img src="images/doctors/01.png" alt="원장 인사">
         </div>
-        <div class="about-text">
+        <div class="greeting-text">
           <div class="section-header">
             <span class="section-label">인사말</span>
             <h2 class="section-title">어진 마음으로<br>정성껏 진료합니다</h2>
           </div>
-          <p class="about-quote">"환자분의 건강이 곧 저희의 보람입니다"</p>
+          <p class="greeting-quote">"환자분의 건강이 곧 저희의 보람입니다"</p>
           <p>안녕하십니까, 수인당 한의원 원장입니다.</p>
           <p>수인당(壽仁堂)은 '오래 살고 어진 마음으로 돌보는 집'이라는 뜻을 담고 있습니다. 30년간 한방 의료에 종사하며 쌓아온 경험과 지식을 바탕으로, 환자분 한 분 한 분의 체질과 증상에 맞는 맞춤 치료를 제공해 드리고 있습니다.</p>
           <p>현대의 바쁜 생활 속에서 지친 몸과 마음을 한방의 지혜로 돌보아 드리겠습니다. 언제든 편하게 방문해 주십시오.</p>
-          <p style="margin-top: var(--space-lg); font-weight: 600;">수인당 한의원 원장 <strong>홍길동</strong></p>
+          <p class="greeting-signature">수인당 한의원 원장 <strong>홍길동</strong></p>
         </div>
       </div>
     </div>
@@ -93,11 +87,10 @@
         <h2 class="section-title">믿을 수 있는 의료진</h2>
         <p class="section-desc">풍부한 경험과 전문 지식을 갖춘 의료진이 정성껏 진료합니다</p>
       </div>
-
       <div class="doctors-grid">
         <div class="doctor-card">
           <div class="doctor-image">
-            <img src="images/doctors/02.jpg" alt="대표원장 홍길동">
+            <img src="images/doctors/02.png" alt="대표원장 홍길동">
           </div>
           <div class="doctor-info">
             <span class="doctor-position">대표원장</span>
@@ -111,7 +104,6 @@
             </ul>
           </div>
         </div>
-
         <div class="doctor-card">
           <div class="doctor-image">
             <img src="images/doctors/03.png" alt="부원장 김영희">
@@ -140,31 +132,46 @@
         <h2 class="section-title">편안한 치료 환경</h2>
         <p class="section-desc">깨끗하고 쾌적한 환경에서 편안하게 치료받으실 수 있습니다</p>
       </div>
-
       <div class="facility-gallery">
-        <div class="facility-item">
-          <img src="images/facility/f1.jpg" alt="대기실">
-          <span class="facility-label">넓고 쾌적한 대기실</span>
+        <div class="facility-item large">
+          <div class="facility-slider" id="facilitySlider">
+            <div class="slider-images">
+              <img src="images/facility/f1.jpg" alt="시설 이미지 1" class="slider-img active">
+              <img src="images/facility/f2.jpg" alt="시설 이미지 2" class="slider-img">
+              <img src="images/facility/f3.jpg" alt="시설 이미지 3" class="slider-img">
+              <img src="images/facility/f4.jpg" alt="시설 이미지 4" class="slider-img">
+              <img src="images/facility/f5.jpg" alt="시설 이미지 5" class="slider-img">
+            </div>
+            <div class="slider-controls">
+              <button class="slider-btn" id="sliderPrev" aria-label="이전">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="slider-btn" id="sliderToggle" aria-label="멈춤">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="pause-icon"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="play-icon" style="display:none;"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+              <button class="slider-btn" id="sliderNext" aria-label="다음">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+          <span class="facility-label">쾌적한 치료 환경</span>
         </div>
         <div class="facility-item">
-          <img src="images/facility/f2.jpg" alt="진료실">
+          <img src="images/treatment/t1.jpg" alt="진료실">
           <span class="facility-label">프라이버시가 보장되는 진료실</span>
         </div>
         <div class="facility-item">
-          <img src="images/facility/f3.jpg" alt="침치료실">
+          <img src="images/treatment/t2.jpg" alt="침치료실">
           <span class="facility-label">편안한 침치료실</span>
         </div>
         <div class="facility-item">
-          <img src="images/facility/f4.jpg" alt="물리치료실">
+          <img src="images/treatment/t3.jpg" alt="물리치료실">
           <span class="facility-label">최신 장비의 물리치료실</span>
         </div>
         <div class="facility-item">
-          <img src="images/facility/f5.jpg" alt="탕전실">
+          <img src="images/treatment/t4.jpg" alt="탕전실">
           <span class="facility-label">청결한 탕전실</span>
-        </div>
-        <div class="facility-item">
-          <img src="images/treatment/t1.jpg" alt="상담실">
-          <span class="facility-label">편안한 상담실</span>
         </div>
       </div>
     </div>
@@ -176,7 +183,7 @@
       <h2 class="cta-title">건강 상담이 필요하신가요?</h2>
       <p class="cta-desc">전문 의료진이 친절하게 상담해 드립니다</p>
       <div class="cta-buttons">
-        <a href="tel:02-1234-5678" class="btn btn-outline btn-large">전화 상담: 02-1234-5678</a>
+        <a href="tel:02-1234-5678" class="btn btn-outline btn-large">📞 전화 상담: 02-1234-5678</a>
         <a href="location.html" class="btn btn-outline btn-large">오시는 길 안내</a>
       </div>
     </div>
@@ -193,22 +200,19 @@
           </div>
           <p class="footer-slogan">건강한 삶, 오래된 지혜</p>
         </div>
-
         <div class="footer-contact">
           <h4>연락처</h4>
           <p><strong>전화:</strong> 02-1234-5678</p>
           <p><strong>주소:</strong> 서울특별시 OO구 OO로 123</p>
           <p><strong>이메일:</strong> info@suindang.com</p>
         </div>
-
         <div class="footer-hours">
           <h4>진료 시간</h4>
           <p>평일: 09:00 - 18:00</p>
           <p>토요일: 09:00 - 13:00</p>
-          <p>일요일/공휴일: 휴진</p>
+          <p>일요일·공휴일: 휴진</p>
         </div>
       </div>
-
       <div class="footer-bottom">
         <p class="copyright">© 2024 수인당 한의원. All rights reserved.</p>
         <p class="footer-notice">본 웹사이트의 내용은 의료 정보 제공 목적이며, 의사의 진단을 대체하지 않습니다.</p>
@@ -216,9 +220,7 @@
     </div>
   </footer>
 
-  <!-- Mobile Navigation Overlay -->
   <div class="mobile-nav-overlay"></div>
-
   <script src="script.js"></script>
 </body>
 </html>

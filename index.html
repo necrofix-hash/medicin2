@@ -6,12 +6,10 @@
   <title>수인당 한의원 | 건강한 삶, 오래된 지혜</title>
   <meta name="description" content="수인당 한의원 - 30년 경험의 한방 치료, 중장년층 맞춤 진료">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
-
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,7 +17,7 @@
   <header class="header">
     <div class="header-top">
       <div class="container">
-        <p>평일 09:00 - 18:00 | 토요일 09:00 - 13:00 | 일요일/공휴일 휴진</p>
+        <p class="header-notice">평일 09:00 - 18:00 | 토요일 09:00 - 13:00 | 일요일·공휴일 휴진</p>
       </div>
     </div>
     <nav class="nav">
@@ -28,13 +26,9 @@
           <span class="logo-symbol">壽仁堂</span>
           <span class="logo-text">수인당 한의원</span>
         </a>
-
         <button class="mobile-menu-btn" aria-label="메뉴 열기">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
-
         <ul class="nav-menu">
           <li class="nav-item"><a href="index.html" class="active">홈</a></li>
           <li class="nav-item"><a href="about.html">한의원 소개</a></li>
@@ -42,8 +36,8 @@
           <li class="nav-item"><a href="community.html">건강 정보</a></li>
           <li class="nav-item"><a href="location.html">오시는 길</a></li>
         </ul>
-
         <a href="tel:02-1234-5678" class="btn-reservation">
+          <span class="phone-icon">📞</span>
           <span>02-1234-5678</span>
         </a>
       </div>
@@ -51,9 +45,9 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="hero-image">
-      <img src="images/hero/main.jpg" alt="수인당 한의원">
+      <img src="images/hero/main.jpg" alt="수인당 한의원" class="hero-img">
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -62,8 +56,8 @@
         <h1 class="hero-title">건강한 삶,<br>오래된 지혜</h1>
         <p class="hero-desc">오래 살고 어진 마음으로 돌보는 집<br>30년 경험의 정성 어린 한방 치료</p>
         <div class="hero-buttons">
-          <a href="tel:02-1234-5678" class="btn btn-primary btn-large">전화 예약하기</a>
-          <a href="about.html" class="btn btn-outline btn-large">한의원 소개</a>
+          <a href="tel:02-1234-5678" class="btn btn-primary">전화 예약하기</a>
+          <a href="about.html" class="btn btn-secondary">한의원 소개</a>
         </div>
       </div>
     </div>
@@ -85,8 +79,8 @@
         </a>
         <a href="community.html" class="quick-link-item">
           <div class="quick-link-icon">📋</div>
-          <h3 class="quick-link-title">커뮤니티</h3>
-          <p class="quick-link-desc">건강 정보, 치료 후기</p>
+          <h3 class="quick-link-title">건강 정보</h3>
+          <p class="quick-link-desc">한방 건강 상식, 치료 후기</p>
         </a>
         <a href="location.html" class="quick-link-item">
           <div class="quick-link-icon">📍</div>
@@ -102,7 +96,7 @@
     <div class="container">
       <div class="about-preview">
         <div class="about-image">
-          <img src="images/doctors/01.jpg" alt="원장 인사">
+          <img src="images/doctors/01.png" alt="원장 인사">
         </div>
         <div class="about-text">
           <div class="section-header">
@@ -112,7 +106,7 @@
           <p class="about-quote">"환자분의 건강이 곧 저희의 보람입니다"</p>
           <p>수인당(壽仁堂)은 '오래 살고 어진 마음으로 돌보는 집'이라는 뜻을 담고 있습니다. 30년간 한방 의료에 종사하며 쌓아온 경험과 지식을 바탕으로, 환자분 한 분 한 분의 체질과 증상에 맞는 맞춤 치료를 제공해 드리고 있습니다.</p>
           <br>
-          <a href="about.html" class="btn btn-secondary">자세히 보기</a>
+          <a href="about.html" class="btn btn-primary">자세히 보기</a>
         </div>
       </div>
     </div>
@@ -126,7 +120,6 @@
         <h2 class="section-title">체질에 맞는 맞춤 치료</h2>
         <p class="section-desc">다양한 증상에 대해 전문적인 한방 치료를 제공합니다</p>
       </div>
-
       <div class="services-grid">
         <div class="service-card">
           <div class="service-icon">🫀</div>
@@ -150,15 +143,14 @@
     </div>
   </section>
 
-  <!-- Facility Section - 시설 안내 -->
-  <section class="section" id="facility" style="background: var(--bg-secondary);">
+  <!-- Facility Preview -->
+  <section class="section">
     <div class="container">
       <div class="section-header center">
         <span class="section-label">시설 안내</span>
         <h2 class="section-title">편안한 치료 환경</h2>
         <p class="section-desc">깨끗하고 쾌적한 환경에서 편안하게 치료받으실 수 있습니다</p>
       </div>
-
       <div class="facility-gallery-home">
         <div class="facility-item-large">
           <div class="facility-slider" id="facilitySlider">
@@ -171,23 +163,14 @@
             </div>
             <div class="slider-controls">
               <button class="slider-btn" id="sliderPrev" aria-label="이전">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M15 18l-6-6 6-6"/>
-                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
               </button>
               <button class="slider-btn" id="sliderToggle" aria-label="멈춤">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="pause-icon">
-                  <rect x="6" y="4" width="4" height="16"/>
-                  <rect x="14" y="4" width="4" height="16"/>
-                </svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="play-icon" style="display:none;">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="pause-icon"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="play-icon" style="display:none;"><path d="M8 5v14l11-7z"/></svg>
               </button>
               <button class="slider-btn" id="sliderNext" aria-label="다음">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M9 18l6-6-6-6"/>
-                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
               </button>
             </div>
           </div>
@@ -213,7 +196,7 @@
       <h2 class="cta-title">건강한 삶을 위한 첫 걸음</h2>
       <p class="cta-desc">지금 바로 상담 예약하시고<br>체질에 맞는 맞춤 치료를 시작하세요</p>
       <div class="cta-buttons">
-        <a href="tel:02-1234-5678" class="btn btn-outline btn-large">전화 상담: 02-1234-5678</a>
+        <a href="tel:02-1234-5678" class="btn btn-outline btn-large">📞 전화 상담: 02-1234-5678</a>
         <a href="location.html" class="btn btn-outline btn-large">오시는 길 안내</a>
       </div>
     </div>
@@ -230,22 +213,19 @@
           </div>
           <p class="footer-slogan">건강한 삶, 오래된 지혜</p>
         </div>
-
         <div class="footer-contact">
           <h4>연락처</h4>
           <p><strong>전화:</strong> 02-1234-5678</p>
           <p><strong>주소:</strong> 서울특별시 OO구 OO로 123</p>
           <p><strong>이메일:</strong> info@suindang.com</p>
         </div>
-
         <div class="footer-hours">
           <h4>진료 시간</h4>
           <p>평일: 09:00 - 18:00</p>
           <p>토요일: 09:00 - 13:00</p>
-          <p>일요일/공휴일: 휴진</p>
+          <p>일요일·공휴일: 휴진</p>
         </div>
       </div>
-
       <div class="footer-bottom">
         <p class="copyright">© 2024 수인당 한의원. All rights reserved.</p>
         <p class="footer-notice">본 웹사이트의 내용은 의료 정보 제공 목적이며, 의사의 진단을 대체하지 않습니다.</p>
@@ -253,9 +233,7 @@
     </div>
   </footer>
 
-  <!-- Mobile Navigation Overlay -->
   <div class="mobile-nav-overlay"></div>
-
   <script src="script.js"></script>
 </body>
 </html>
